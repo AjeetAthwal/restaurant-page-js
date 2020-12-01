@@ -58,6 +58,10 @@ h1{
     font-size: 2em;
 }
 
+h2{
+    text-align: center;
+}
+
 ul {
     padding-left: 10%;
     list-style-type: none;
