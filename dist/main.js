@@ -1,1 +1,270 @@
-(()=>{"use strict";eval('\n;// CONCATENATED MODULE: ./src/pageLoad.js\nconst homeLoad = (mainDiv, toggle, headers) => {\n    const h1Tag = document.createElement("h1");\n    h1Tag.innerText = "The Restaurant"\n    h1Tag.classList.add("subcontent");\n\n    const imgTag = document.createElement("img");\n    imgTag.alt = "Wagyu";\n    imgTag.src = "images/wagyu.jpg"\n    imgTag.classList.add("subcontent");\n\n    const pTag = document.createElement("p");\n    pTag.innerHTML = "Located in my wildest dreams, this restaurant provides you with the finest food from around the world like this juicy Wagyu Beef above. Just <em><b>LOOK</em></b> at that marbling!";\n    pTag.classList.add("subcontent");\n\n    mainDiv.appendChild(h1Tag);\n    mainDiv.appendChild(imgTag);\n    mainDiv.appendChild(pTag);\n\n    toggle("home", headers);\n}\nconst pageLoad = (headerTag, mainDiv, toggle, headers) => {\n    document.querySelector("title").innerText = "Restaurant"\n    \n    const ulTag = document.createElement("ul");\n    headers.forEach(header => {\n        const liTag = document.createElement("li");\n        const aTag = document.createElement("a");\n\n        aTag.id = header + "-nav";\n        aTag.innerText = header.charAt(0).toUpperCase() + header.substring(1,);\n        aTag.href = "#"\n\n        liTag.appendChild(aTag);\n        ulTag.appendChild(liTag);\n    })\n\n    headerTag.appendChild(ulTag);\n    \n\n    homeLoad(mainDiv, toggle, headers)\n}\n\n\n;// CONCATENATED MODULE: ./src/menuLoad.js\nconst menuLoad = (mainDiv, toggle, headers)=> {\n    const h1Tag = document.createElement("h1");\n    h1Tag.innerText = "Menu"\n    h1Tag.classList.add("subcontent");\n\n    mainDiv.appendChild(h1Tag);\n\n    toggle("menu", headers);\n}\n\n/* harmony default export */ const src_menuLoad = (menuLoad);\n;// CONCATENATED MODULE: ./src/contactLoad.js\nconst contactLoad = (mainDiv, toggle, headers) => {\n    const h1Tag = document.createElement("h1");\n    h1Tag.innerText = "Contact Us"\n    h1Tag.classList.add("subcontent");\n\n    const h2EmailTag = document.createElement("h2");\n    h2EmailTag.innerText = "Mobile: 012 - 345 - 678"\n    h2EmailTag.classList.add("subcontent");\n\n    const h2MobileTag = document.createElement("h2");\n    h2MobileTag.innerText = "Email:  restaurant@restaurant.com"\n    h2MobileTag.classList.add("subcontent");\n\n    mainDiv.appendChild(h1Tag);\n    mainDiv.appendChild(h2EmailTag)\n    mainDiv.appendChild(h2MobileTag)\n\n    toggle("contact", headers);\n}\n\n/* harmony default export */ const src_contactLoad = (contactLoad);\n;// CONCATENATED MODULE: ./src/removeContent.js\nfunction removeContent(mainDiv){\n    while (mainDiv.firstChild !== null) mainDiv.firstChild.remove(mainDiv.firstChild);\n}\n\n/* harmony default export */ const src_removeContent = (removeContent);\n;// CONCATENATED MODULE: ./src/index.js\n\n\n\n\n\nconst headerTag = document.querySelector("header");\nconst mainDiv = document.querySelector("#content");\nconst headers = ["home" , "menu", "contact"];\n\nfunction toggle(header, headers){\n    toggleClass(header, headers);\n    toggleEventListeners(header, headers);\n}\n\nfunction toggleClass(header, headers){\n    headers.forEach(header => document.querySelector(`#${header}-nav`).classList.remove("active"));\n    document.querySelector(`#${header}-nav`).classList.add("active");\n}\n\nfunction toggleEventListeners(activeHeader, headers){\n    headers.forEach(header => document.querySelector(`#${header}-nav`).removeEventListener("click", load));\n\n    const headersAdj = headers.filter(header => header !== activeHeader);\n    headersAdj.forEach(header => document.querySelector(`#${header}-nav`).addEventListener("click", load));\n}\n\nfunction load(e){\n    const headerId = e.target.id;\n    const header = headerId.substring(0, headerId.indexOf("-"));\n\n    src_removeContent(mainDiv);\n    if (header === "home") homeLoad(mainDiv, toggle, headers);\n    else if (header === "menu") src_menuLoad(mainDiv, toggle, headers);\n    else if (header === "contact") src_contactLoad(mainDiv, toggle, headers);\n}\n\npageLoad(headerTag, mainDiv, toggle, headers);//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9yZXN0YXVyYW50LXBhZ2UtanMvLi9zcmMvcGFnZUxvYWQuanM/Nzk0NiIsIndlYnBhY2s6Ly9yZXN0YXVyYW50LXBhZ2UtanMvLi9zcmMvbWVudUxvYWQuanM/MmFlNiIsIndlYnBhY2s6Ly9yZXN0YXVyYW50LXBhZ2UtanMvLi9zcmMvY29udGFjdExvYWQuanM/ZDNhNCIsIndlYnBhY2s6Ly9yZXN0YXVyYW50LXBhZ2UtanMvLi9zcmMvcmVtb3ZlQ29udGVudC5qcz9iY2U4Iiwid2VicGFjazovL3Jlc3RhdXJhbnQtcGFnZS1qcy8uL3NyYy9pbmRleC5qcz9iNjM1Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUE7QUFDQTtBQUNBO0FBQ0E7O0FBRUE7QUFDQTtBQUNBO0FBQ0E7O0FBRUE7QUFDQTtBQUNBOztBQUVBO0FBQ0E7QUFDQTs7QUFFQTtBQUNBO0FBQ0E7QUFDQTs7QUFFQTtBQUNBO0FBQ0E7QUFDQTs7QUFFQTtBQUNBO0FBQ0E7O0FBRUE7QUFDQTtBQUNBLEtBQUs7O0FBRUw7OztBQUdBO0FBQ0E7Ozs7QUN4Q0E7QUFDQTtBQUNBO0FBQ0E7O0FBRUE7O0FBRUE7QUFDQTs7QUFFQSxtREFBZSxRQUFRLEU7O0FDVnZCO0FBQ0E7QUFDQTtBQUNBOztBQUVBO0FBQ0E7QUFDQTs7QUFFQTtBQUNBO0FBQ0E7O0FBRUE7QUFDQTtBQUNBOztBQUVBO0FBQ0E7O0FBRUEsc0RBQWUsV0FBVyxFOztBQ3BCMUI7QUFDQTtBQUNBOztBQUVBLHdEQUFlLGFBQWEsRTs7QUNKa0I7QUFDWjtBQUNNO0FBQ0k7O0FBRTVDO0FBQ0E7QUFDQTs7QUFFQTtBQUNBO0FBQ0E7QUFDQTs7QUFFQTtBQUNBLHlEQUF5RCxPQUFPO0FBQ2hFLCtCQUErQixPQUFPO0FBQ3RDOztBQUVBO0FBQ0EseURBQXlELE9BQU87O0FBRWhFO0FBQ0EsNERBQTRELE9BQU87QUFDbkU7O0FBRUE7QUFDQTtBQUNBOztBQUVBLElBQUksaUJBQWE7QUFDakIsMkJBQTJCLFFBQVE7QUFDbkMsZ0NBQWdDLFlBQVE7QUFDeEMsbUNBQW1DLGVBQVc7QUFDOUM7O0FBRUEsUUFBUSIsImZpbGUiOiI1MC5qcyIsInNvdXJjZXNDb250ZW50IjpbImNvbnN0IGhvbWVMb2FkID0gKG1haW5EaXYsIHRvZ2dsZSwgaGVhZGVycykgPT4ge1xuICAgIGNvbnN0IGgxVGFnID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudChcImgxXCIpO1xuICAgIGgxVGFnLmlubmVyVGV4dCA9IFwiVGhlIFJlc3RhdXJhbnRcIlxuICAgIGgxVGFnLmNsYXNzTGlzdC5hZGQoXCJzdWJjb250ZW50XCIpO1xuXG4gICAgY29uc3QgaW1nVGFnID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudChcImltZ1wiKTtcbiAgICBpbWdUYWcuYWx0ID0gXCJXYWd5dVwiO1xuICAgIGltZ1RhZy5zcmMgPSBcImltYWdlcy93YWd5dS5qcGdcIlxuICAgIGltZ1RhZy5jbGFzc0xpc3QuYWRkKFwic3ViY29udGVudFwiKTtcblxuICAgIGNvbnN0IHBUYWcgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KFwicFwiKTtcbiAgICBwVGFnLmlubmVySFRNTCA9IFwiTG9jYXRlZCBpbiBteSB3aWxkZXN0IGRyZWFtcywgdGhpcyByZXN0YXVyYW50IHByb3ZpZGVzIHlvdSB3aXRoIHRoZSBmaW5lc3QgZm9vZCBmcm9tIGFyb3VuZCB0aGUgd29ybGQgbGlrZSB0aGlzIGp1aWN5IFdhZ3l1IEJlZWYgYWJvdmUuIEp1c3QgPGVtPjxiPkxPT0s8L2VtPjwvYj4gYXQgdGhhdCBtYXJibGluZyFcIjtcbiAgICBwVGFnLmNsYXNzTGlzdC5hZGQoXCJzdWJjb250ZW50XCIpO1xuXG4gICAgbWFpbkRpdi5hcHBlbmRDaGlsZChoMVRhZyk7XG4gICAgbWFpbkRpdi5hcHBlbmRDaGlsZChpbWdUYWcpO1xuICAgIG1haW5EaXYuYXBwZW5kQ2hpbGQocFRhZyk7XG5cbiAgICB0b2dnbGUoXCJob21lXCIsIGhlYWRlcnMpO1xufVxuY29uc3QgcGFnZUxvYWQgPSAoaGVhZGVyVGFnLCBtYWluRGl2LCB0b2dnbGUsIGhlYWRlcnMpID0+IHtcbiAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwidGl0bGVcIikuaW5uZXJUZXh0ID0gXCJSZXN0YXVyYW50XCJcbiAgICBcbiAgICBjb25zdCB1bFRhZyA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoXCJ1bFwiKTtcbiAgICBoZWFkZXJzLmZvckVhY2goaGVhZGVyID0+IHtcbiAgICAgICAgY29uc3QgbGlUYWcgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KFwibGlcIik7XG4gICAgICAgIGNvbnN0IGFUYWcgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KFwiYVwiKTtcblxuICAgICAgICBhVGFnLmlkID0gaGVhZGVyICsgXCItbmF2XCI7XG4gICAgICAgIGFUYWcuaW5uZXJUZXh0ID0gaGVhZGVyLmNoYXJBdCgwKS50b1VwcGVyQ2FzZSgpICsgaGVhZGVyLnN1YnN0cmluZygxLCk7XG4gICAgICAgIGFUYWcuaHJlZiA9IFwiI1wiXG5cbiAgICAgICAgbGlUYWcuYXBwZW5kQ2hpbGQoYVRhZyk7XG4gICAgICAgIHVsVGFnLmFwcGVuZENoaWxkKGxpVGFnKTtcbiAgICB9KVxuXG4gICAgaGVhZGVyVGFnLmFwcGVuZENoaWxkKHVsVGFnKTtcbiAgICBcblxuICAgIGhvbWVMb2FkKG1haW5EaXYsIHRvZ2dsZSwgaGVhZGVycylcbn1cblxuZXhwb3J0IHtob21lTG9hZCwgcGFnZUxvYWR9OyIsImNvbnN0IG1lbnVMb2FkID0gKG1haW5EaXYsIHRvZ2dsZSwgaGVhZGVycyk9PiB7XG4gICAgY29uc3QgaDFUYWcgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KFwiaDFcIik7XG4gICAgaDFUYWcuaW5uZXJUZXh0ID0gXCJNZW51XCJcbiAgICBoMVRhZy5jbGFzc0xpc3QuYWRkKFwic3ViY29udGVudFwiKTtcblxuICAgIG1haW5EaXYuYXBwZW5kQ2hpbGQoaDFUYWcpO1xuXG4gICAgdG9nZ2xlKFwibWVudVwiLCBoZWFkZXJzKTtcbn1cblxuZXhwb3J0IGRlZmF1bHQgbWVudUxvYWQ7IiwiY29uc3QgY29udGFjdExvYWQgPSAobWFpbkRpdiwgdG9nZ2xlLCBoZWFkZXJzKSA9PiB7XG4gICAgY29uc3QgaDFUYWcgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KFwiaDFcIik7XG4gICAgaDFUYWcuaW5uZXJUZXh0ID0gXCJDb250YWN0IFVzXCJcbiAgICBoMVRhZy5jbGFzc0xpc3QuYWRkKFwic3ViY29udGVudFwiKTtcblxuICAgIGNvbnN0IGgyRW1haWxUYWcgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KFwiaDJcIik7XG4gICAgaDJFbWFpbFRhZy5pbm5lclRleHQgPSBcIk1vYmlsZTogMDEyIC0gMzQ1IC0gNjc4XCJcbiAgICBoMkVtYWlsVGFnLmNsYXNzTGlzdC5hZGQoXCJzdWJjb250ZW50XCIpO1xuXG4gICAgY29uc3QgaDJNb2JpbGVUYWcgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KFwiaDJcIik7XG4gICAgaDJNb2JpbGVUYWcuaW5uZXJUZXh0ID0gXCJFbWFpbDogIHJlc3RhdXJhbnRAcmVzdGF1cmFudC5jb21cIlxuICAgIGgyTW9iaWxlVGFnLmNsYXNzTGlzdC5hZGQoXCJzdWJjb250ZW50XCIpO1xuXG4gICAgbWFpbkRpdi5hcHBlbmRDaGlsZChoMVRhZyk7XG4gICAgbWFpbkRpdi5hcHBlbmRDaGlsZChoMkVtYWlsVGFnKVxuICAgIG1haW5EaXYuYXBwZW5kQ2hpbGQoaDJNb2JpbGVUYWcpXG5cbiAgICB0b2dnbGUoXCJjb250YWN0XCIsIGhlYWRlcnMpO1xufVxuXG5leHBvcnQgZGVmYXVsdCBjb250YWN0TG9hZDsiLCJmdW5jdGlvbiByZW1vdmVDb250ZW50KG1haW5EaXYpe1xuICAgIHdoaWxlIChtYWluRGl2LmZpcnN0Q2hpbGQgIT09IG51bGwpIG1haW5EaXYuZmlyc3RDaGlsZC5yZW1vdmUobWFpbkRpdi5maXJzdENoaWxkKTtcbn1cblxuZXhwb3J0IGRlZmF1bHQgcmVtb3ZlQ29udGVudDsiLCJpbXBvcnQge2hvbWVMb2FkLCBwYWdlTG9hZH0gZnJvbSBcIi4vcGFnZUxvYWRcIjtcbmltcG9ydCBtZW51TG9hZCBmcm9tIFwiLi9tZW51TG9hZFwiO1xuaW1wb3J0IGNvbnRhY3RMb2FkIGZyb20gXCIuL2NvbnRhY3RMb2FkXCI7XG5pbXBvcnQgcmVtb3ZlQ29udGVudCBmcm9tIFwiLi9yZW1vdmVDb250ZW50XCI7XG5cbmNvbnN0IGhlYWRlclRhZyA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCJoZWFkZXJcIik7XG5jb25zdCBtYWluRGl2ID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIiNjb250ZW50XCIpO1xuY29uc3QgaGVhZGVycyA9IFtcImhvbWVcIiAsIFwibWVudVwiLCBcImNvbnRhY3RcIl07XG5cbmZ1bmN0aW9uIHRvZ2dsZShoZWFkZXIsIGhlYWRlcnMpe1xuICAgIHRvZ2dsZUNsYXNzKGhlYWRlciwgaGVhZGVycyk7XG4gICAgdG9nZ2xlRXZlbnRMaXN0ZW5lcnMoaGVhZGVyLCBoZWFkZXJzKTtcbn1cblxuZnVuY3Rpb24gdG9nZ2xlQ2xhc3MoaGVhZGVyLCBoZWFkZXJzKXtcbiAgICBoZWFkZXJzLmZvckVhY2goaGVhZGVyID0+IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYCMke2hlYWRlcn0tbmF2YCkuY2xhc3NMaXN0LnJlbW92ZShcImFjdGl2ZVwiKSk7XG4gICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcihgIyR7aGVhZGVyfS1uYXZgKS5jbGFzc0xpc3QuYWRkKFwiYWN0aXZlXCIpO1xufVxuXG5mdW5jdGlvbiB0b2dnbGVFdmVudExpc3RlbmVycyhhY3RpdmVIZWFkZXIsIGhlYWRlcnMpe1xuICAgIGhlYWRlcnMuZm9yRWFjaChoZWFkZXIgPT4gZG9jdW1lbnQucXVlcnlTZWxlY3RvcihgIyR7aGVhZGVyfS1uYXZgKS5yZW1vdmVFdmVudExpc3RlbmVyKFwiY2xpY2tcIiwgbG9hZCkpO1xuXG4gICAgY29uc3QgaGVhZGVyc0FkaiA9IGhlYWRlcnMuZmlsdGVyKGhlYWRlciA9PiBoZWFkZXIgIT09IGFjdGl2ZUhlYWRlcik7XG4gICAgaGVhZGVyc0Fkai5mb3JFYWNoKGhlYWRlciA9PiBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGAjJHtoZWFkZXJ9LW5hdmApLmFkZEV2ZW50TGlzdGVuZXIoXCJjbGlja1wiLCBsb2FkKSk7XG59XG5cbmZ1bmN0aW9uIGxvYWQoZSl7XG4gICAgY29uc3QgaGVhZGVySWQgPSBlLnRhcmdldC5pZDtcbiAgICBjb25zdCBoZWFkZXIgPSBoZWFkZXJJZC5zdWJzdHJpbmcoMCwgaGVhZGVySWQuaW5kZXhPZihcIi1cIikpO1xuXG4gICAgcmVtb3ZlQ29udGVudChtYWluRGl2KTtcbiAgICBpZiAoaGVhZGVyID09PSBcImhvbWVcIikgaG9tZUxvYWQobWFpbkRpdiwgdG9nZ2xlLCBoZWFkZXJzKTtcbiAgICBlbHNlIGlmIChoZWFkZXIgPT09IFwibWVudVwiKSBtZW51TG9hZChtYWluRGl2LCB0b2dnbGUsIGhlYWRlcnMpO1xuICAgIGVsc2UgaWYgKGhlYWRlciA9PT0gXCJjb250YWN0XCIpIGNvbnRhY3RMb2FkKG1haW5EaXYsIHRvZ2dsZSwgaGVhZGVycyk7XG59XG5cbnBhZ2VMb2FkKGhlYWRlclRhZywgbWFpbkRpdiwgdG9nZ2xlLCBoZWFkZXJzKTsiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///50\n')})();
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/contactLoad.js":
+/*!****************************!*\
+  !*** ./src/contactLoad.js ***!
+  \****************************/
+/*! namespace exports */
+/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+const contactLoad = (mainDiv, toggle, headers) => {
+    const h1Tag = document.createElement("h1");
+    h1Tag.innerText = "Contact Us"
+    h1Tag.classList.add("subcontent");
+
+    const h2EmailTag = document.createElement("h2");
+    h2EmailTag.innerText = "Mobile: 012 - 345 - 678"
+    h2EmailTag.classList.add("subcontent");
+
+    const h2MobileTag = document.createElement("h2");
+    h2MobileTag.innerText = "Email:  restaurant@restaurant.com"
+    h2MobileTag.classList.add("subcontent");
+
+    mainDiv.appendChild(h1Tag);
+    mainDiv.appendChild(h2EmailTag)
+    mainDiv.appendChild(h2MobileTag)
+
+    toggle("contact", headers);
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (contactLoad);
+
+/***/ }),
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/*! namespace exports */
+/*! exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_require__, __webpack_require__.r, __webpack_exports__, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _pageLoad__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pageLoad */ "./src/pageLoad.js");
+/* harmony import */ var _menuLoad__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./menuLoad */ "./src/menuLoad.js");
+/* harmony import */ var _contactLoad__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./contactLoad */ "./src/contactLoad.js");
+/* harmony import */ var _removeContent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./removeContent */ "./src/removeContent.js");
+
+
+
+
+
+const headerTag = document.querySelector("header");
+const mainDiv = document.querySelector("#content");
+const headers = ["home" , "menu", "contact"];
+
+function toggle(header, headers){
+    toggleClass(header, headers);
+    toggleEventListeners(header, headers);
+}
+
+function toggleClass(header, headers){
+    headers.forEach(header => document.querySelector(`#${header}-nav`).classList.remove("active"));
+    document.querySelector(`#${header}-nav`).classList.add("active");
+}
+
+function toggleEventListeners(activeHeader, headers){
+    headers.forEach(header => document.querySelector(`#${header}-nav`).removeEventListener("click", load));
+
+    const headersAdj = headers.filter(header => header !== activeHeader);
+    headersAdj.forEach(header => document.querySelector(`#${header}-nav`).addEventListener("click", load));
+}
+
+function load(e){
+    const headerId = e.target.id;
+    const header = headerId.substring(0, headerId.indexOf("-"));
+
+    (0,_removeContent__WEBPACK_IMPORTED_MODULE_3__.default)(mainDiv);
+    if (header === "home") (0,_pageLoad__WEBPACK_IMPORTED_MODULE_0__.homeLoad)(mainDiv, toggle, headers);
+    else if (header === "menu") (0,_menuLoad__WEBPACK_IMPORTED_MODULE_1__.default)(mainDiv, toggle, headers);
+    else if (header === "contact") (0,_contactLoad__WEBPACK_IMPORTED_MODULE_2__.default)(mainDiv, toggle, headers);
+}
+
+(0,_pageLoad__WEBPACK_IMPORTED_MODULE_0__.pageLoad)(headerTag, mainDiv, toggle, headers);
+
+/***/ }),
+
+/***/ "./src/menuLoad.js":
+/*!*************************!*\
+  !*** ./src/menuLoad.js ***!
+  \*************************/
+/*! namespace exports */
+/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+const menuLoad = (mainDiv, toggle, headers)=> {
+    const h1Tag = document.createElement("h1");
+    h1Tag.innerText = "Menu"
+    h1Tag.classList.add("subcontent");
+
+    mainDiv.appendChild(h1Tag);
+
+    toggle("menu", headers);
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (menuLoad);
+
+/***/ }),
+
+/***/ "./src/pageLoad.js":
+/*!*************************!*\
+  !*** ./src/pageLoad.js ***!
+  \*************************/
+/*! namespace exports */
+/*! export homeLoad [provided] [no usage info] [missing usage info prevents renaming] */
+/*! export pageLoad [provided] [no usage info] [missing usage info prevents renaming] */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_require__.r, __webpack_exports__, __webpack_require__.d, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "homeLoad": () => /* binding */ homeLoad,
+/* harmony export */   "pageLoad": () => /* binding */ pageLoad
+/* harmony export */ });
+const homeLoad = (mainDiv, toggle, headers) => {
+    const h1Tag = document.createElement("h1");
+    h1Tag.innerText = "The Restaurant"
+    h1Tag.classList.add("subcontent");
+
+    const imgTag = document.createElement("img");
+    imgTag.alt = "Wagyu";
+    imgTag.src = "images/wagyu.jpg"
+    imgTag.classList.add("subcontent");
+
+    const pTag = document.createElement("p");
+    pTag.innerHTML = "Located in my wildest dreams, this restaurant provides you with the finest food from around the world like this juicy Wagyu Beef above. Just <em><b>LOOK</em></b> at that marbling!";
+    pTag.classList.add("subcontent");
+
+    mainDiv.appendChild(h1Tag);
+    mainDiv.appendChild(imgTag);
+    mainDiv.appendChild(pTag);
+
+    toggle("home", headers);
+}
+const pageLoad = (headerTag, mainDiv, toggle, headers) => {
+    document.querySelector("title").innerText = "Restaurant"
+    
+    const ulTag = document.createElement("ul");
+    headers.forEach(header => {
+        const liTag = document.createElement("li");
+        const aTag = document.createElement("a");
+
+        aTag.id = header + "-nav";
+        aTag.innerText = header.charAt(0).toUpperCase() + header.substring(1,);
+        aTag.href = "#"
+
+        liTag.appendChild(aTag);
+        ulTag.appendChild(liTag);
+    })
+
+    headerTag.appendChild(ulTag);
+    
+
+    homeLoad(mainDiv, toggle, headers)
+}
+
+
+
+/***/ }),
+
+/***/ "./src/removeContent.js":
+/*!******************************!*\
+  !*** ./src/removeContent.js ***!
+  \******************************/
+/*! namespace exports */
+/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+function removeContent(mainDiv){
+    while (mainDiv.firstChild !== null) mainDiv.firstChild.remove(mainDiv.firstChild);
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (removeContent);
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		if(__webpack_module_cache__[moduleId]) {
+/******/ 			return __webpack_module_cache__[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => Object.prototype.hasOwnProperty.call(obj, prop)
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	// startup
+/******/ 	// Load entry module
+/******/ 	__webpack_require__("./src/index.js");
+/******/ 	// This entry module used 'exports' so it can't be inlined
+/******/ })()
+;
+//# sourceMappingURL=main.js.map
