@@ -1,6 +1,7 @@
 :root {
     --main-bg: #babfda;
     --main-color: #5762c5;
+    --secondary-color: #2a39c7;
 }
 
 header{
@@ -55,4 +56,38 @@ img {
 h1{
     text-align: center;
     font-size: 2em;
+}
+
+ul {
+    padding-left: 10%;
+    list-style-type: none;
+    margin: 0;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: var(--main-bg);
+    padding: 13px;
+    text-decoration: none;
+    text-align: center;
+    background-color: var(--main-color);
+}
+
+li a:hover {
+    background-color: var(--secondary-color);
+}
+
+.active {
+    background-color: var(--main-bg);
+    color: var(--main-color);
+}
+
+.active:hover {
+    background-color: var(--main-bg);
+    color: var(--main-color);
+    cursor: default;
 }

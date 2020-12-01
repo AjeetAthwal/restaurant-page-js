@@ -1,5 +1,4 @@
-const pageLoad = () => {
-    const mainDiv = document.querySelector("#content");
+const homeLoad = (mainDiv, toggle) => {
     const h1Tag = document.createElement("h1");
     h1Tag.innerText = "The Restaurant"
     h1Tag.classList.add("subcontent");
@@ -16,6 +15,27 @@ const pageLoad = () => {
     mainDiv.appendChild(h1Tag);
     mainDiv.appendChild(imgTag);
     mainDiv.appendChild(pTag);
+
+    toggle("home");
+}
+const pageLoad = (headerTag, mainDiv, toggle, headers) => {
+    const ulTag = document.createElement("ul");
+    headers.forEach(header => {
+        const liTag = document.createElement("li");
+        const aTag = document.createElement("a");
+
+        aTag.id = header + "-nav";
+        aTag.innerText = header.charAt(0).toUpperCase() + header.substring(1,);
+        aTag.href = "#"
+
+        liTag.appendChild(aTag);
+        ulTag.appendChild(liTag);
+    })
+
+    headerTag.appendChild(ulTag);
+    
+
+    homeLoad(mainDiv, toggle)
 }
 
-export default pageLoad;
+export {homeLoad, pageLoad};
