@@ -1,1 +1,3 @@
-console.log("Testing wepback works")
+import pageLoad from "./pageLoad"
+
+pageLoad();
