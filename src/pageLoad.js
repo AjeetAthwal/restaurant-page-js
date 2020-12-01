@@ -19,6 +19,8 @@ const homeLoad = (mainDiv, toggle, headers) => {
     toggle("home", headers);
 }
 const pageLoad = (headerTag, mainDiv, toggle, headers) => {
+    document.querySelector("title").innerText = "Restaurant"
+    
     const ulTag = document.createElement("ul");
     headers.forEach(header => {
         const liTag = document.createElement("li");
