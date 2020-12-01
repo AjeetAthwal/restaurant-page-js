@@ -115,10 +115,28 @@ li a:hover {
 
 .menu-img{
     width: 50%;
+    min-width: 250px;
     height: 250px;
     object-fit: cover;
 }
 
+@media only screen and (max-width: 600px) {
+    .menu-div{
+        grid-template-columns: 1fr;
+    }
+    .menu-img{
+        width: 50%;
+        min-width:150px;
+        height: 150px;
+    }
+    body{
+        font-size: 1em;
+    }
+
+    li a {
+        padding: 17px;
+    }
+  }
 
 .text-div{
     padding-left: 20px;
