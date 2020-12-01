@@ -1,4 +1,4 @@
-const homeLoad = (mainDiv, toggle) => {
+const homeLoad = (mainDiv, toggle, headers) => {
     const h1Tag = document.createElement("h1");
     h1Tag.innerText = "The Restaurant"
     h1Tag.classList.add("subcontent");
@@ -16,7 +16,7 @@ const homeLoad = (mainDiv, toggle) => {
     mainDiv.appendChild(imgTag);
     mainDiv.appendChild(pTag);
 
-    toggle("home");
+    toggle("home", headers);
 }
 const pageLoad = (headerTag, mainDiv, toggle, headers) => {
     const ulTag = document.createElement("ul");
@@ -35,7 +35,7 @@ const pageLoad = (headerTag, mainDiv, toggle, headers) => {
     headerTag.appendChild(ulTag);
     
 
-    homeLoad(mainDiv, toggle)
+    homeLoad(mainDiv, toggle, headers)
 }
 
 export {homeLoad, pageLoad};

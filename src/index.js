@@ -7,8 +7,7 @@ const headerTag = document.querySelector("header");
 const mainDiv = document.querySelector("#content");
 const headers = ["home" , "menu", "contact"];
 
-function toggle(header){
-    const headers = ["home" , "menu", "contact"];
+function toggle(header, headers){
     toggleClass(header, headers);
     toggleEventListeners(header, headers);
 }
@@ -30,9 +29,9 @@ function load(e){
     const header = headerId.substring(0, headerId.indexOf("-"));
 
     removeContent(mainDiv);
-    if (header === "home") homeLoad(mainDiv, toggle);
-    else if (header === "menu") menuLoad(mainDiv, toggle);
-    else if (header === "contact") contactLoad(mainDiv, toggle);
+    if (header === "home") homeLoad(mainDiv, toggle, headers);
+    else if (header === "menu") menuLoad(mainDiv, toggle, headers);
+    else if (header === "contact") contactLoad(mainDiv, toggle, headers);
 }
 
 pageLoad(headerTag, mainDiv, toggle, headers);
