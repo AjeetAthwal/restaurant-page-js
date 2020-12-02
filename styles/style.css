@@ -71,19 +71,25 @@ ul {
     padding-left: 10%;
     list-style-type: none;
     margin: 0;
+    height: 50px;
 }
 
 li {
     float: left;
+    height: 50px;
 }
 
 li a {
     display: block;
     color: var(--main-bg);
-    padding: 13px;
+    /*padding: 13px;*/
     text-decoration: none;
     text-align: center;
     background-color: var(--main-color);
+    height: 50px;
+    padding-right: 15px;
+    padding-left: 15px;
+    line-height: 50px;
 }
 
 li a:hover {
@@ -132,11 +138,7 @@ li a:hover {
     body{
         font-size: 1em;
     }
-
-    li a {
-        padding: 17px;
-    }
-  }
+}
 
 .text-div{
     padding-left: 20px;
